@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 1080527444}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,13 +162,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d24559a0d2a0f2468b54dda52b4445d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  runningSpeedMultiplier: 1.5
+  speed: 5
+  runningSpeedMultiplier: 2
+  jumpHeight: 0.5
+  gravity: -9.81
   groundMask:
     serializedVersion: 2
     m_Bits: 128
   groundDistance: 0.4
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 1296890793}
   characterController: {fileID: 1080527440}
 --- !u!114 &1080527443
 MonoBehaviour:
@@ -182,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1af49dbfcee03c47a756eb007360be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 400
+  mouseSensitivity: 303
   playerCamera: {fileID: 3555525925622895625}
 --- !u!114 &1080527444
 MonoBehaviour:
