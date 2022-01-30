@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CargoBoxScript : MonoBehaviour {
@@ -26,13 +27,30 @@ public class CargoBoxScript : MonoBehaviour {
 			itemTaken = false;
 		}
 	}
+
+	private void OnMouseOver() {
+		if (Input.GetMouseButtonDown(0)) {
+			Items item = GetContainedItem();
+			if (item == Items.Empty)
+			{
+				UI_ManagerScript.AddMessageToQueue("Cargo box is empty!!!");
+			}
+			else
+			{
+				UI_ManagerScript.AddMessageToQueue("Picking up " + item + " from the cargo box.");
+				GameManagerScript.GetGameManagerInstance().AddItemToInventory(item);
+			}
+		}
+	}
+
+
+	private Items GetContainedItem() {
+		itemTaken = true;
+		return cargoBoxItem;
+	}
 	#endregion
 
 	#region Public Access Functions (Getters and Setters).
 
-	public Items GetContainedItem() {
-		itemTaken = true;
-		return cargoBoxItem;
-	}
 	#endregion
 }
